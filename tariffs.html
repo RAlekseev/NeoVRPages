@@ -13,6 +13,12 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
+    <style>@media screen and (max-width: 1024px){
+        html, body {
+            overflow-y: auto; /* заменяем hidden на auto ВАЖНО ДЛЯ ЭТОЙ СТРАНИЦЫ */
+            height: auto;
+        }
+    }</style>
 </head>
 <body>
 <!-- HEADER -->
@@ -50,9 +56,11 @@
 </div>
 
 <!-- BLOBS BACKGROUND -->
+<div class="blobs-container">
 <div class="blob blob1"></div>
 <div class="blob blob2"></div>
 <div class="blob blob3"></div>
+</div>
 
 <!-- HERO TARIFFS -->
 <section id="tariffs" class="relative z-10 pt-28 pb-20 px-6 text-center">
@@ -186,10 +194,10 @@
 </style>
 
 
-<!-- HERO -->
-<section id="home">
-    <canvas id="bg-canvas"></canvas>
-</section>
+<!--&lt;!&ndash; HERO &ndash;&gt;-->
+<!--<section id="home">-->
+<!--    <canvas id="bg-canvas"></canvas>-->
+<!--</section>-->
 
 <!-- FOOTER -->
 <footer>
@@ -204,3 +212,14 @@
 </footer>
 </body>
 </html>
+<script>
+    // Запускаем three.js только после того, как основной контент отрисован
+    window.addEventListener("load", () => {
+        // Mobile menu
+        const menuBtn = document.querySelector(".menu-toggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("open");
+        });
+    });
+</script>
